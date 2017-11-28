@@ -29,7 +29,7 @@ DELIMITER |
 CREATE TRIGGER after_update_d_civilite AFTER UPDATE
   ON D_Civilite FOR EACH ROW
   BEGIN
-    INSERT INTO d_Civilite_hist (
+    INSERT INTO D_Civilite_hist (
       CP_Civilite,
       Titre_court,
       Titre_long,
@@ -52,7 +52,7 @@ DELIMITER |
 CREATE TRIGGER after_delete_d_civilite AFTER DELETE
   ON D_Civilite FOR EACH ROW
   BEGIN
-    INSERT INTO d_Civilite_hist (
+    INSERT INTO D_Civilite_hist (
       CP_Civilite,
       Titre_court,
       Titre_long,

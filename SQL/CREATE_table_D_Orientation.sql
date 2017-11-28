@@ -18,6 +18,9 @@ CREATE TABLE IF NOT EXISTS D_Orientation (
   Finalite                  VARCHAR(200),
   Finalite_abrev            VARCHAR(10),
   Ordre                     INT(11),
+  Niveau_du_cycle           INT(2),
+  Certification_ue          VARCHAR(30),
+  Coordonnees               VARCHAR(500),
   Modification_donnee       TIMESTAMP,
   PRIMARY KEY (CP_Orientation)
 ) ENGINE=INNODB;
@@ -35,6 +38,9 @@ CREATE TABLE IF NOT EXISTS D_Orientation_hist (
   Finalite                  VARCHAR(200),
   Finalite_abrev            VARCHAR(10),
   Ordre                     INT(11),
+  Niveau_du_cycle           INT(2),
+  Certification_ue          VARCHAR(30),
+  Coordonnees               VARCHAR(500),
   Modification_donnee       TIMESTAMP,
   User_hist                 VARCHAR(20),
   Event_hist                VARCHAR(6),
@@ -58,6 +64,9 @@ CREATE TRIGGER after_update_d_orientation AFTER UPDATE
       Finalite,
       Finalite_abrev,
       Ordre,
+      Niveau_du_cycle,
+      Certification_ue,
+      Coordonnees,
       Modification_donnee,
       User_hist,
       Event_hist)
@@ -74,6 +83,9 @@ CREATE TRIGGER after_update_d_orientation AFTER UPDATE
       OLD.Finalite,
       OLD.Finalite_abrev,
       OLD.Ordre,
+      OLD.Niveau_du_cycle,
+      OLD.Certification_ue,
+      OLD.Coordonnees,
       NOW(),
       CURRENT_USER(),
       'UPDATE');
@@ -97,6 +109,9 @@ CREATE TRIGGER after_delete_d_orientation AFTER DELETE
       Finalite,
       Finalite_abrev,
       Ordre,
+      Niveau_du_cycle,
+      Certification_ue,
+      Coordonnees,
       Modification_donnee,
       User_hist,
       Event_hist)
@@ -113,6 +128,9 @@ CREATE TRIGGER after_delete_d_orientation AFTER DELETE
       OLD.Finalite,
       OLD.Finalite_abrev,
       OLD.Ordre,
+      OLD.Niveau_du_cycle,
+      OLD.Certification_ue,
+      OLD.Coordonnees,
       NOW(),
       CURRENT_USER(),
       'DELETE');
